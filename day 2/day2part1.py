@@ -1,28 +1,26 @@
 from collections import Counter
 
 
-def countdupes(listToCheck, numDupesToCheck):
+def count_dupes(list_to_check, num_dupes_to_check):
     count = 0
-    dupeFound = False
-    for item in listToCheck:
+    dupe_found = False
+    for item in list_to_check:
         counter = Counter(item)
         for letter in counter:
-            if counter[letter] == numDupesToCheck:
-                dupeFound = True
-        if dupeFound:
+            if counter[letter] == num_dupes_to_check:
+                dupe_found = True
+        if dupe_found:
             count += 1
-        dupeFound = False
+        dupe_found = False
 
     return count
 
 
 def main():
     with open('day2input.txt') as f:
-        inputValues = f.readlines()
-        exactly2 = countdupes(inputValues, 2)
-        print(exactly2)
-        exactly3 = countdupes(inputValues, 3)
-        print(exactly3)
+        input_values = f.readlines()
+        exactly2 = count_dupes(input_values, 2)
+        exactly3 = count_dupes(input_values, 3)
         print(exactly2 * exactly3)
 
 
